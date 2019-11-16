@@ -57,6 +57,7 @@ class Calendar extends Component {
 	render({ }, { calendars }) {
 		return (
 			<div className="container">
+				<h1>Nos prochains événements !</h1>
 				<CalendarNav calendars={calendars} toggleCalendar={this.toggleCalendar} />
 				<EventsList calendars={calendars} />
 			</div>
