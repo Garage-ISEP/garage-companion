@@ -24,18 +24,24 @@ export async function getCalendarEvents(calendarId, config={}) {
 }
 
 export async function addParticipant(calendarId, eventId, email) {
-	const response = await fetch(`${URL}/calendar/${calendarId}/events/${eventId}/addParticipant`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			email
-		})
-	});
-	
+	let response;
+	try {
+		response = await fetch(`${URL}/calendar/${calendarId}/events/${eventId}/addParticipant`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email
+			})
+		});
+	}
+	catch (e) {
+		throw Error('Something went wrong with the network');
+	}
+
 	if (!response.ok)
-		throw Error('Error while sending the participant');
+		throw Error((await response.json()).message);
 
 	return await response.json();
 }
