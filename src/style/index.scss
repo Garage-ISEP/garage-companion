@@ -20,5 +20,15 @@ html, body {
 
 	#page {
 		padding-top: 64px;
+
+		.container {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 750px;
+
+			@media screen and (max-width: 1000px) {
+				padding: 0 10px;
+			}
+		}
 	}
 }

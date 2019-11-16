@@ -1,0 +1,20 @@
+.eventCard {
+  margin: 20px 0;
+
+  .eventCardHeader {
+    padding: 1rem;
+
+    .eventCardTitle {
+      margin: 0;
+    }
+
+    .eventCardDate {
+      margin: 0;
+    }
+  }
+
+  .eventCardBody {
+    padding: 1rem;
+    white-space: pre-wrap;
+  }
+}

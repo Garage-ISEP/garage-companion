@@ -9,7 +9,9 @@
 @import "@material/tab-indicator/mdc-tab-indicator";
 @import "@material/tab-scroller/mdc-tab-scroller";
 @import "@material/chips/mdc-chips";
-
+@import "@material/card/mdc-card";
+@import "@material/button/mdc-button";
+@import "@material/typography/mdc-typography";
 
 /* Font for icons */
 @font-face {
@@ -35,10 +37,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 /*
   All possible material components
   @import "@material/button/mdc-button";
-  @import "@material/card/mdc-card";
   @import "@material/checkbox/mdc-checkbox";
   @import "@material/dialog/mdc-dialog";
   @import "@material/drawer/mdc-drawer";
@@ -66,5 +70,4 @@
   @import "@material/textfield/mdc-text-field";
   @import "@material/theme/mdc-theme";
   @import "@material/toolbar/mdc-toolbar";
-  @import "@material/typography/mdc-typography";
 */

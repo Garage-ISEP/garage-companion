@@ -14,3 +14,11 @@ export async function getAllEvents(config={}) {
 	});
 	return await response.json();
 }
+
+export async function getCalendarEvents(calendarId, config={}) {
+	const response = await fetch(`${URL}/calendar/${calendarId}/events`, {
+		method: 'POST',
+		body: JSON.stringify(config)
+	});
+	return await response.json()
+}
