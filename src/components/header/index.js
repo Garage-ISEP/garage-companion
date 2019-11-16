@@ -1,7 +1,8 @@
 import { h, Component } from 'preact';
-import { Link } from 'preact-router/match';
 import { getCalendarList } from '../../utils/garage-api';
-import style from './style';
+import style from './style.scss';
+
+import TopAppBar from 'preact-material-components/TopAppBar';
 
 class Header extends Component {
 	state = {
@@ -18,18 +19,21 @@ class Header extends Component {
 
 	render({}, { calendars }) {
 		return (
-			<header class={style.header}>
-				<h1>Preact App</h1>
-				<nav>
-					<Link activeClassName={style.active} href="/">Home</Link>
-					{
-						calendars.map((calendar, index) => (
-							<Link key={index} activeClassName={style.active} href={`/calendar/${calendar.id}`}>{ calendar.summary }</Link>
-						))
-					}
-				</nav>
-			</header>
-		)
+			<div>
+				<TopAppBar className={style.topappbar}>
+					<TopAppBar.Row>
+						<TopAppBar.Section align-start>
+							<TopAppBar.Title>
+								Garage ISEP
+							</TopAppBar.Title>
+						</TopAppBar.Section>
+						<TopAppBar.Section align-end>
+							<TopAppBar.Icon>more_vert</TopAppBar.Icon>
+						</TopAppBar.Section>
+					</TopAppBar.Row>
+				</TopAppBar>
+			</div>
+		);
 	}
 }
 

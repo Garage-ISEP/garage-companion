@@ -1,0 +1,9 @@
+.calendarNav {
+  .calendarNavItem {
+    text-decoration: none;
+
+    &.active .chip {
+      border: solid 1px black;
+    }
+  }
+}

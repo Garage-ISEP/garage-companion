@@ -1,0 +1,70 @@
+/* Set colors */
+@import '_variables';
+
+/* Material compoenents used */
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/elevation/mdc-elevation";
+@import "@material/tab/mdc-tab";
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/chips/mdc-chips";
+
+
+/* Font for icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  All possible material components
+  @import "@material/button/mdc-button";
+  @import "@material/card/mdc-card";
+  @import "@material/checkbox/mdc-checkbox";
+  @import "@material/dialog/mdc-dialog";
+  @import "@material/drawer/mdc-drawer";
+  @import "@material/fab/mdc-fab";
+  @import "@material/floating-label/mdc-floating-label";
+  @import "@material/form-field/mdc-form-field";
+  @import "@material/grid-list/mdc-grid-list";
+  @import "@material/icon-button/mdc-icon-button";
+  @import "@material/icon-toggle/mdc-icon-toggle";
+  @import "@material/image-list/mdc-image-list";
+  @import "@material/layout-grid/mdc-layout-grid";
+  @import "@material/line-ripple/mdc-line-ripple";
+  @import "@material/linear-progress/mdc-linear-progress";
+  @import "@material/list/mdc-list";
+  @import "@material/menu/mdc-menu";
+  @import "@material/menu-surface/mdc-menu-surface";
+  @import "@material/notched-outline/mdc-notched-outline";
+  @import "@material/radio/mdc-radio";
+  @import "@material/ripple/mdc-ripple";
+  @import "@material/select/mdc-select";
+  @import "@material/shape/mdc-shape";
+  @import "@material/slider/mdc-slider";
+  @import "@material/snackbar/mdc-snackbar";
+  @import "@material/switch/mdc-switch";
+  @import "@material/textfield/mdc-text-field";
+  @import "@material/theme/mdc-theme";
+  @import "@material/toolbar/mdc-toolbar";
+  @import "@material/typography/mdc-typography";
+*/
