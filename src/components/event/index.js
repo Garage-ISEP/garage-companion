@@ -21,7 +21,7 @@ class AddParticipantForm extends Component {
 			fetching: false,
 			isDone: false,
 			message: undefined
-		})
+		});
 	}
 
 	onInput = e => {
