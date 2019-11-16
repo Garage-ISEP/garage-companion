@@ -12,6 +12,8 @@
 @import "@material/card/mdc-card";
 @import "@material/button/mdc-button";
 @import "@material/typography/mdc-typography";
+@import "@material/textfield/mdc-text-field";
+@import "@material/linear-progress/mdc-linear-progress";
 
 /* Font for icons */
 @font-face {
@@ -55,7 +57,6 @@
   @import "@material/image-list/mdc-image-list";
   @import "@material/layout-grid/mdc-layout-grid";
   @import "@material/line-ripple/mdc-line-ripple";
-  @import "@material/linear-progress/mdc-linear-progress";
   @import "@material/list/mdc-list";
   @import "@material/menu/mdc-menu";
   @import "@material/menu-surface/mdc-menu-surface";
@@ -67,7 +68,6 @@
   @import "@material/slider/mdc-slider";
   @import "@material/snackbar/mdc-snackbar";
   @import "@material/switch/mdc-switch";
-  @import "@material/textfield/mdc-text-field";
   @import "@material/theme/mdc-theme";
   @import "@material/toolbar/mdc-toolbar";
 */

@@ -17,4 +17,16 @@
     padding: 1rem;
     white-space: pre-wrap;
   }
+
+  .actions {
+    .actionLeft {
+      width: 100%;
+
+      .textField {
+        width: 100%;
+        background-color: transparent;
+        border-radius: 0;
+      }
+    }
+  }
 }

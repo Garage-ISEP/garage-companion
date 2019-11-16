@@ -20,5 +20,22 @@ export async function getCalendarEvents(calendarId, config={}) {
 		method: 'POST',
 		body: JSON.stringify(config)
 	});
-	return await response.json()
+	return await response.json();
+}
+
+export async function addParticipant(calendarId, eventId, email) {
+	const response = await fetch(`${URL}/calendar/${calendarId}/events/${eventId}/addParticipant`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			email
+		})
+	});
+	
+	if (!response.ok)
+		throw Error('Error while sending the participant');
+
+	return await response.json();
 }

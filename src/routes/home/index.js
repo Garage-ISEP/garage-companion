@@ -1,25 +1,67 @@
 import { h, Component } from 'preact';
-import style from './style';
-import { getAllEvents } from '../../utils/garage-api';
+import { getCalendarList, getCalendarEvents } from '../../utils/garage-api';
+import CalendarNav from '../../components/calendarNav';
+import EventsList from '../../components/eventsList';
 
-class Home extends Component {
+
+class Calendar extends Component {
 	state = {
-		events: []
+		loadingCalendars: true,
+		calendars: []
 	}
 
-	componentDidMount() {
-		getAllEvents().then(events => {
-			this.setState({ events });
+	toggleCalendar = calendarId => {
+		this.setState({
+			calendars: this.state.calendars.map(calendar => {
+				if (calendar.id === calendarId) {
+					return { ...calendar, active: !calendar.active };
+				}
+
+				return calendar;
+			})
 		});
 	}
 
-	render({ }, { events }) {
+	setCalendars = async () => {
+		const calendars = await getCalendarList();
+		this.setState({
+			calendars: calendars.map(calendar => ({ ...calendar, active: true, events: [] })),
+			loadingCalendars: false
+		});
+		return calendars;
+	}
+
+	setEvents = async () => {
+		await Promise.all(this.state.calendars.map(async calendar => {
+			const response = await getCalendarEvents(calendar.id, {});
+			this.setState({
+				calendars: this.state.calendars.map(cal => {
+					if (calendar.id === cal.id) {
+						return {
+							...cal,
+							events: response.items
+						};
+					}
+
+					return cal;
+				})
+			});
+		}));
+	}
+
+	async componentDidMount() {
+		await this.setCalendars();
+		await this.setEvents();
+	}
+
+	render({ }, { calendars }) {
 		return (
-			<div class={style.home}>
-				<h1>Home</h1>
+			<div className="container">
+				<CalendarNav calendars={calendars} toggleCalendar={this.toggleCalendar} />
+				<EventsList calendars={calendars} />
 			</div>
 		);
 	}
 }
 
-export default Home;
+export default Calendar;
