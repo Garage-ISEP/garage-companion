@@ -7,9 +7,9 @@
     "start": "per-env",
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
-    "build": "preact build --template ./src/template.html",
+    "build": "preact build --template ./src/template.html --service-worker false",
     "serve": "preact build && serve build",
-    "dev": "preact watch --template ./src/template.html",
+    "dev": "preact watch --template ./src/template.html --service-worker false",
     "lint": "eslint src",
     "test": "jest"
   },
@@ -30,7 +30,8 @@
     "preact-material-components": "^1.6.1",
     "preact-render-spy": "^1.2.1",
     "sass-loader": "^7.0.0",
-    "serve": "^11.2.0"
+    "serve": "^11.2.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
     "preact": "^8.5.2",
