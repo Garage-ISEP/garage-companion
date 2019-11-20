@@ -32,7 +32,7 @@ if (process.env.ENABLE_BROTLI && process.env.ES_BUILD) {
 
 const precacheOptions = {};
 if (process.env.ENABLE_BROTLI) {
-	precacheOptions['urlManipulation'] = ({ url }) => {
+	precacheOptions.urlManipulation = ({ url }) => {
 		if (/\.esm\.js$/.test(url.href)) {
 			url.href += '.br';
 		}
@@ -54,10 +54,17 @@ workbox.routing.registerRoute(
 		networkTimeoutSeconds: 5, // if u dont start getting headers within 5 sec fallback to cache.
 		plugins: [
 			new workbox.cacheableResponse.Plugin({
-				statuses: [200], // only cache valid responses, not opaque responses e.g. wifi portal.
-			}),
-		],
+				statuses: [200] // only cache valid responses, not opaque responses e.g. wifi portal.
+			})
+		]
 	})
+);
+
+// Garage api caching
+workbox.routing.registerRoute(
+	new RegExp('http://localhost:3000/.*'),
+	async ({ event }) => new workbox.strategies.NetworkFirst(event),
+	'GET'
 );
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest, precacheOptions);
