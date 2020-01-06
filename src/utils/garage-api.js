@@ -18,6 +18,9 @@ export async function getAllEvents(config={}) {
 export async function getCalendarEvents(calendarId, config={}) {
 	const response = await fetch(`${URL}/calendar/${calendarId}/events`, {
 		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
 		body: JSON.stringify(config)
 	});
 	return await response.json();

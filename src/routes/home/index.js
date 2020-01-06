@@ -7,6 +7,7 @@ import EventsList from '../../components/eventsList';
 class Calendar extends Component {
 	state = {
 		loadingCalendars: true,
+		previously: false,
 		calendars: []
 	}
 
@@ -22,6 +23,21 @@ class Calendar extends Component {
 		});
 	}
 
+	togglePreviously = async () => {
+		const config = !this.state.previously ? { timeMax: (new Date()).toISOString() } : { timeMin: (new Date()).toISOString() };
+
+		this.setState({
+			previously: !this.state.previously,
+			loadingCalendars: true
+		});
+
+		await this.setEvents(config);
+
+		this.setState({
+			loadingCalendars: false
+		});
+	}
+
 	setCalendars = async () => {
 		const calendars = await getCalendarList();
 		this.setState({
@@ -31,9 +47,9 @@ class Calendar extends Component {
 		return calendars;
 	}
 
-	setEvents = async () => {
+	setEvents = async (config = {}) => {
 		await Promise.all(this.state.calendars.map(async calendar => {
-			const response = await getCalendarEvents(calendar.id, {});
+			const response = await getCalendarEvents(calendar.id, config);
 			this.setState({
 				calendars: this.state.calendars.map(cal => {
 					if (calendar.id === cal.id) {
@@ -51,15 +67,17 @@ class Calendar extends Component {
 
 	async componentDidMount() {
 		await this.setCalendars();
-		await this.setEvents();
+		await this.setEvents({
+			timeMin: (new Date()).toISOString()
+		});
 	}
 
-	render({ }, { calendars }) {
+	render({ }, { calendars, previously }) {
 		return (
 			<div className="container">
 				<h1>Nos prochains événements !</h1>
-				<CalendarNav calendars={calendars} toggleCalendar={this.toggleCalendar} />
-				<EventsList calendars={calendars} />
+				<CalendarNav calendars={calendars} toggleCalendar={this.toggleCalendar} togglePreviously={this.togglePreviously} previously={previously} />
+				<EventsList calendars={calendars} previously={previously} />
 			</div>
 		);
 	}

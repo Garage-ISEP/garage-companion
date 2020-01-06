@@ -2,7 +2,7 @@ import { h } from 'preact';
 import Event from '../event';
 
 
-const EventsList = ({ calendars }) => {
+const EventsList = ({ calendars, previously }) => {
 	let events = [];
 	calendars.forEach(calendar => {
 		if (calendar.active) {
@@ -17,7 +17,10 @@ const EventsList = ({ calendars }) => {
 		}
 	});
 	events.sort((a, b) => (
-		(new Date(b.start.dateTime)).getTime() - (new Date(a.start.dateTime).getTime())
+		previously ?
+			(new Date(b.start.dateTime)).getTime() - (new Date(a.start.dateTime).getTime())
+			:
+			(new Date(a.start.dateTime)).getTime() - (new Date(b.start.dateTime).getTime())
 	));
 	
 	return (
