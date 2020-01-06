@@ -27,9 +27,6 @@ class Header extends Component {
 								Garage ISEP
 							</TopAppBar.Title>
 						</TopAppBar.Section>
-						<TopAppBar.Section align-end>
-							<TopAppBar.Icon>more_vert</TopAppBar.Icon>
-						</TopAppBar.Section>
 					</TopAppBar.Row>
 				</TopAppBar>
 			</div>
