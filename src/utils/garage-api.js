@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000';
+const URL = 'https://api.garageisep.com';
 
 export async function getCalendarList() {
 	const response = await fetch(`${URL}/calendar/calendarList/list`, {
