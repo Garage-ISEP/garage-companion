@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  companion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules # Avoid mixing files

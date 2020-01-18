@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  companion:
+    command: npm run serveOnly
+    restart: always
+    expose:
+      - 80
+    networks: 
+      - "traefik"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.garage-companion-secure.rule=Host(`companion.garageisep.com`)"
+      - "traefik.http.routers.garage-companion-secure.entrypoints=websecure"
+      - "traefik.http.routers.garage-companion-secure.tls.certresolver=myhttpchallenge"
+      # https redirection
+      - "traefik.http.middlewares.redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.garage-companion.rule=Host(`companion.garageisep.com`)"
+      - "traefik.http.routers.garage-companion.entrypoints=web"
+      - "traefik.http.routers.garage-companion.middlewares=redirect"
+    environment: 
+      - NODE_ENV=production
+
+networks:
+  traefik:
+    external: true
