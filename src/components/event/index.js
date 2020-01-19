@@ -94,7 +94,7 @@ const Event = ({ event }, { email, clicked, message }) => {
 			<div class={style.eventCardHeader} style={{ color: 'white', backgroundColor: event.calendar.color }}>
 				<h2 class={`${style.eventCardTitle} mdc-typography mdc-typography--headline6`}>{ event.summary }</h2>
 				<h3 class={`${style.eventCardDate} mdc-typography mdc-typography--subtitle2`}>
-					Du { start.getDate() }/{ (start.getMonth() < 10 ? '0' : '') + start.getMonth() } à { start.getHours() }h{ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au { end.getDate() }/{ (end.getMonth() < 10 ? '0' : '') + end.getMonth() } à { end.getHours() }h{ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }
+					Du { start.getDate() }/{ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à { start.getHours() }h{ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au { end.getDate() }/{ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à { end.getHours() }h{ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }
 				</h3>
 			</div>
 			<div class={`${style.eventCardBody} mdc-card__primary-action`}>
