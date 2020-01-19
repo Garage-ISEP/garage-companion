@@ -5,3 +5,4 @@ services:
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules # Avoid mixing files
+      - /usr/src/app/build
