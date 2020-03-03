@@ -41,7 +41,6 @@ class AddParticipantForm extends Component {
 			});
 		}
 		catch (e) {
-			console.log(e);
 			this.setState({
 				fetching: false,
 				isDone: true,
@@ -98,7 +97,7 @@ const Event = ({ event }, { email, clicked, message }) => {
 				</h3>
 			</div>
 			<div class={`${style.eventCardBody} mdc-card__primary-action`}>
-				<div class={`${style.eventCardBodyText} mdc-typography mdc-typography--body2`}>{ event.description || 'Aucune description' }</div>
+				<div dangerouslySetInnerHTML={{__html: event.description || 'Aucune description'}}  class={`${style.eventCardBodyText} mdc-typography mdc-typography--body2`}> </div>
 			</div>
 			<AddParticipantForm event={event} />
 		</Card>
