@@ -25,7 +25,7 @@
     "eslint-config-synacor": "^2.0.2",
     "jest": "^24.9.0",
     "jest-preset-preact": "^1.0.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "per-env": "^1.0.2",
     "preact-cli": "^3.0.0-rc.6",
     "preact-material-components": "^1.6.1",
