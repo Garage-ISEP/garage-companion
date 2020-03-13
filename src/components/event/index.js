@@ -1,8 +1,6 @@
 import { h, Component } from 'preact';
-import Card from 'preact-material-components/Card';
-import TextField from 'preact-material-components/TextField';
-import Button from 'preact-material-components/Button';
-import LinearProgress from 'preact-material-components/LinearProgress';
+import { Card, CardHeader, CardContent, CardActions, Button, TextField, LinearProgress, Typography } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import { addParticipant } from '../../utils/garage-api';
 import style from './style.scss';
 
@@ -52,33 +50,33 @@ class AddParticipantForm extends Component {
 	render({ event }, { email, fetching, isDone, message }) {
 		if (!fetching && !isDone) {
 			return (
-				<Card.Actions class={style.actions}>
-					<Card.ActionButtons className={style.actionLeft}>
+				<CardActions className={style.actions}>
+					<div className={style.actionLeft}>
 						<TextField onInput={this.onInput} value={email} className={style.textField} label="email" />
-					</Card.ActionButtons>
-					<Card.ActionIcons>
-						<Button onClick={this.send} style={{ backgroundColor: event.calendar.color }} raised>S'inscrire</Button>
-					</Card.ActionIcons>
-				</Card.Actions>
+					</div>
+					<div>
+						<Button variant="contained" onClick={this.send} style={{ backgroundColor: event.calendar.color, color: 'white' }}>S'inscrire</Button>
+					</div>
+				</CardActions>
 			);
 		}
 		else if (fetching) {
 			return (
-				<Card.Actions>
-					<LinearProgress indeterminate />
-				</Card.Actions>
+				<CardActions className={style.actions}>
+					<LinearProgress />
+				</CardActions>
 			);
 		}
 		else if (isDone) {
 			return (
-				<Card.Actions>
-					<Card.ActionButtons className={style.actionLeft}>
+				<CardActions className={style.actions}>
+					<div className={style.actionLeft}>
 						{ message || 'Something went wrong' }
-					</Card.ActionButtons>
-					<Card.ActionIcons>
-						<Card.ActionIcon onClick={this.reset}>close</Card.ActionIcon>
-					</Card.ActionIcons>
-				</Card.Actions>
+					</div>
+					<div>
+						<CloseIcon onClick={this.reset} />
+					</div>
+				</CardActions>
 			);
 		}
 	}
@@ -90,15 +88,17 @@ const Event = ({ event }, { email, clicked, message }) => {
 
 	return (
 		<Card className={style.eventCard}>
-			<div class={style.eventCardHeader} style={{ color: 'white', backgroundColor: event.calendar.color }}>
-				<h2 class={`${style.eventCardTitle} mdc-typography mdc-typography--headline6`}>{ event.summary }</h2>
-				<h3 class={`${style.eventCardDate} mdc-typography mdc-typography--subtitle2`}>
-					Du { start.getDate() }/{ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à { start.getHours() }h{ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au { end.getDate() }/{ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à { end.getHours() }h{ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }
-				</h3>
-			</div>
-			<div class={`${style.eventCardBody} mdc-card__primary-action`}>
-				<div dangerouslySetInnerHTML={{__html: event.description || 'Aucune description'}}  class={`${style.eventCardBodyText} mdc-typography mdc-typography--body2`}> </div>
-			</div>
+			<CardHeader
+				class={style.eventCardHeader}
+				style={{ color: 'white', backgroundColor: event.calendar.color }}
+				title={event.summary}
+				subheader={`Du ${ start.getDate() }/${ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à ${ start.getHours() }h${ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au ${ end.getDate() }/${ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à ${ end.getHours() }h${ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }`}
+			/>
+			<CardContent>
+				<Typography variant="body2">
+					<div dangerouslySetInnerHTML={{ __html : event.description || 'Aucune description' }} class={style.eventCardBody} />
+				</Typography>
+			</CardContent>
 			<AddParticipantForm event={event} />
 		</Card>
 	);

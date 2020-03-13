@@ -1,10 +1,7 @@
 .calendarNav {
   min-width: 100%;
-  .calendarNavItem {
-    text-decoration: none;
 
-    &.active .chip {
-      border: solid 1px black;
+    .chip {
+      margin: 4px;
     }
-  }
 }
