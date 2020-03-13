@@ -15,9 +15,6 @@ const Event = ({ event }, { email, clicked, message }) => {
 					Du { start.getDate() }/{ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à { start.getHours() }h{ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au { end.getDate() }/{ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à { end.getHours() }h{ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }
 				</h3>
 			</div>
-			<div class={`${style.eventCardBody} mdc-card__primary-action`}>
-				<div dangerouslySetInnerHTML={{__html: event.description || 'Aucune description'}}  class={`${style.eventCardBodyText} mdc-typography mdc-typography--body2`}> </div>
-			</div>
 			<AddParticipantForm event={event} />
 		</Card>
 	);

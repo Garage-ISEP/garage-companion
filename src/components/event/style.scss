@@ -1,7 +1,9 @@
 .eventCard {
   margin: 20px 0;
+  border-radius: 7px;
 
   .eventCardHeader {
+    border-radius: 7px 7px 0 0;
     padding: 1rem;
 
     .eventCardTitle {
