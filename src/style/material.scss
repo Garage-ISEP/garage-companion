@@ -1,21 +1,7 @@
 /* Set colors */
 @import '_variables';
 
-/* Material compoenents used */
-@import "@material/top-app-bar/mdc-top-app-bar";
-@import "@material/elevation/mdc-elevation";
-@import "@material/tab/mdc-tab";
-@import "@material/tab-bar/mdc-tab-bar";
-@import "@material/tab-indicator/mdc-tab-indicator";
-@import "@material/tab-scroller/mdc-tab-scroller";
-@import "@material/chips/mdc-chips";
-@import "@material/card/mdc-card";
-@import "@material/button/mdc-button";
-@import "@material/typography/mdc-typography";
-@import "@material/textfield/mdc-text-field";
-@import "@material/linear-progress/mdc-linear-progress";
 
-/* Font for icons */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -41,33 +27,3 @@
 
 /* Roboto */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-/*
-  All possible material components
-  @import "@material/button/mdc-button";
-  @import "@material/checkbox/mdc-checkbox";
-  @import "@material/dialog/mdc-dialog";
-  @import "@material/drawer/mdc-drawer";
-  @import "@material/fab/mdc-fab";
-  @import "@material/floating-label/mdc-floating-label";
-  @import "@material/form-field/mdc-form-field";
-  @import "@material/grid-list/mdc-grid-list";
-  @import "@material/icon-button/mdc-icon-button";
-  @import "@material/icon-toggle/mdc-icon-toggle";
-  @import "@material/image-list/mdc-image-list";
-  @import "@material/layout-grid/mdc-layout-grid";
-  @import "@material/line-ripple/mdc-line-ripple";
-  @import "@material/list/mdc-list";
-  @import "@material/menu/mdc-menu";
-  @import "@material/menu-surface/mdc-menu-surface";
-  @import "@material/notched-outline/mdc-notched-outline";
-  @import "@material/radio/mdc-radio";
-  @import "@material/ripple/mdc-ripple";
-  @import "@material/select/mdc-select";
-  @import "@material/shape/mdc-shape";
-  @import "@material/slider/mdc-slider";
-  @import "@material/snackbar/mdc-snackbar";
-  @import "@material/switch/mdc-switch";
-  @import "@material/theme/mdc-theme";
-  @import "@material/toolbar/mdc-toolbar";
-*/

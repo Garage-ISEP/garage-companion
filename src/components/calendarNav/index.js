@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
-import Chips from 'preact-material-components/Chips';
+import Chip from '@material-ui/core/Chip';
+import DoneIcon from '@material-ui/icons/Done';
 import style from './style';
 
 class CalendarNav extends Component {
@@ -9,31 +10,26 @@ class CalendarNav extends Component {
 
 	render({ calendars, previously }) {
 		return (
-			<Chips className={style.calendarNav}>
+			<div className={style.calendarNav}>
 				{
 					calendars.map(calendar => (
-						<Chips.Chip
+						<Chip
 							className={`${style.chip}`}
 							style={calendar.active ? { backgroundColor: calendar.color, color: 'white' } : {}}
 							onClick={this.toggleCalendar(calendar.id)}
-						>
-							{calendar.active ?
-								<Chips.Icon className="material-icons" leading>check</Chips.Icon>
-								:
-								''
-							}
-							<Chips.Text>{ calendar.summary }</Chips.Text>
-						</Chips.Chip>
+							icon={calendar.active ? <DoneIcon  /> : undefined}
+							label={calendar.summary}
+							clickable
+						/>
 					))
 				}
-				<Chips.Chip
+				<Chip
 					className={`${style.chip}`}
 					onClick={this.props.togglePreviously}
 					style={previously ? { backgroundColor: 'black', color: 'white' } : {}}
-				>
-					<Chips.Text>Previously...</Chips.Text>
-				</Chips.Chip>
-			</Chips>
+					label="Previously..."
+				/>
+			</div>
 		);
 	}
 
