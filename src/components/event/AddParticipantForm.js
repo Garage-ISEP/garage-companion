@@ -1,12 +1,10 @@
 import { h, Component } from 'preact';
-import Card from 'preact-material-components/Card';
-import TextField from 'preact-material-components/TextField';
-import Button from 'preact-material-components/Button';
-import LinearProgress from 'preact-material-components/LinearProgress';
+import { CardActions, Button, TextField, LinearProgress } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import { addParticipant } from '../../utils/garage-api';
 import style from './style.scss';
 
-export default class AddParticipantForm extends Component {
+class AddParticipantForm extends Component {
 	state = {
 		email: '',
 		fetching: false,
@@ -51,34 +49,36 @@ export default class AddParticipantForm extends Component {
 	render({ event }, { email, fetching, isDone, message }) {
 		if (!fetching && !isDone) {
 			return (
-				<Card.Actions class={style.actions}>
-					<Card.ActionButtons className={style.actionLeft}>
+				<CardActions className={style.actions}>
+					<div className={style.actionLeft}>
 						<TextField onInput={this.onInput} value={email} className={style.textField} label="email" />
-					</Card.ActionButtons>
-					<Card.ActionIcons>
-						<Button onClick={this.send} style={{ backgroundColor: event.calendar.color }} raised>S'inscrire</Button>
-					</Card.ActionIcons>
-				</Card.Actions>
+					</div>
+					<div>
+						<Button variant="contained" onClick={this.send} style={{ backgroundColor: event.calendar.color, color: 'white' }}>S'inscrire</Button>
+					</div>
+				</CardActions>
 			);
 		}
 		else if (fetching) {
 			return (
-				<Card.Actions>
-					<LinearProgress indeterminate />
-				</Card.Actions>
+				<CardActions className={style.actions}>
+					<LinearProgress />
+				</CardActions>
 			);
 		}
 		else if (isDone) {
 			return (
-				<Card.Actions>
-					<Card.ActionButtons className={style.actionLeft}>
+				<CardActions className={style.actions}>
+					<div className={style.actionLeft}>
 						{ message || 'Something went wrong' }
-					</Card.ActionButtons>
-					<Card.ActionIcons>
-						<Card.ActionIcon onClick={this.reset}>close</Card.ActionIcon>
-					</Card.ActionIcons>
-				</Card.Actions>
+					</div>
+					<div>
+						<CloseIcon onClick={this.reset} />
+					</div>
+				</CardActions>
 			);
 		}
 	}
 }
+
+export default AddParticipantForm;

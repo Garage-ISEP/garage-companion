@@ -1,8 +1,7 @@
 import { h, Component } from 'preact';
 import { getCalendarList } from '../../utils/garage-api';
-import style from './style.scss';
 
-import TopAppBar from 'preact-material-components/TopAppBar';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 class Header extends Component {
 	state = {
@@ -20,15 +19,13 @@ class Header extends Component {
 	render({}, { calendars }) {
 		return (
 			<div>
-				<TopAppBar className={style.topappbar}>
-					<TopAppBar.Row>
-						<TopAppBar.Section align-start>
-							<TopAppBar.Title>
-								Garage ISEP
-							</TopAppBar.Title>
-						</TopAppBar.Section>
-					</TopAppBar.Row>
-				</TopAppBar>
+				<AppBar>
+					<Toolbar>
+						<Typography variant="h6" color="inherit">
+							GarageISEP
+						</Typography>
+					</Toolbar>
+				</AppBar>
 			</div>
 		);
 	}
