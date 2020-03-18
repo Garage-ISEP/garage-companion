@@ -17,7 +17,7 @@ class CalendarNav extends Component {
 							className={`${style.chip}`}
 							style={calendar.active ? { backgroundColor: calendar.color, color: 'white' } : {}}
 							onClick={this.toggleCalendar(calendar.id)}
-							icon={calendar.active ? <DoneIcon  /> : undefined}
+							icon={calendar.active ? <DoneIcon className={style.icon}  /> : undefined}
 							label={calendar.summary}
 							clickable
 						/>

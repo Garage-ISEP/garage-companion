@@ -3,5 +3,9 @@
 
     .chip {
       margin: 4px;
+
+      .icon {
+        color: rgba($color: #FFF, $alpha: 0.7);
+      }
     }
 }
