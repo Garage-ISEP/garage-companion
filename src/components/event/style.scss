@@ -3,8 +3,12 @@
   border-radius: 7px;
 
   .eventCardHeader {
-    border-radius: 7px 7px 0 0;
     padding: 1rem;
+    color: white;
+
+    .eventCardSubHeader {
+      color: white;
+    }
 
     .eventCardTitle {
       margin: 0;

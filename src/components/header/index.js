@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { getCalendarList } from '../../utils/garage-api';
+import style from './style.scss';
 
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
@@ -19,7 +20,7 @@ class Header extends Component {
 	render({}, { calendars }) {
 		return (
 			<div>
-				<AppBar>
+				<AppBar className={style.appBar}>
 					<Toolbar>
 						<Typography variant="h6" color="inherit">
 							GarageISEP

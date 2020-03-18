@@ -10,10 +10,14 @@ const Event = ({ event }, { email, clicked, message }) => {
 	return (
 		<Card className={style.eventCard}>
 			<CardHeader
-				class={style.eventCardHeader}
-				style={{ color: 'white', backgroundColor: event.calendar.color }}
+				className={style.eventCardHeader}
+				style={{ backgroundColor: event.calendar.color }}
 				title={event.summary}
-				subheader={`Du ${ start.getDate() }/${ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à ${ start.getHours() }h${ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au ${ end.getDate() }/${ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à ${ end.getHours() }h${ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }`}
+				subheader={
+					<span className={style.eventCardSubHeader}>
+						{`Du ${ start.getDate() }/${ (start.getMonth() < 9 ? '0' : '') + (start.getMonth() + 1) } à ${ start.getHours() }h${ (start.getMinutes() < 10 ? '0' : '') + start.getMinutes() } au ${ end.getDate() }/${ (end.getMonth() < 9 ? '0' : '') + (end.getMonth() + 1) } à ${ end.getHours() }h${ (end.getMinutes() < 10 ? '0' : '') + end.getMinutes() }`}
+					</span>
+				}
 			/>
 			<CardContent>
 				<Typography variant="body2">
