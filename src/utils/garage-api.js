@@ -40,11 +40,23 @@ export async function addParticipant(calendarId, eventId, email) {
 		});
 	}
 	catch (e) {
-		throw Error('Something went wrong with the network');
+		return {
+			success: false,
+			error: 'NetworkError',
+			message: 'Something went wrong with the network'
+		}
 	}
 
-	if (!response.ok)
-		throw Error((await response.json()).message);
-
-	return await response.json();
+	if (!response.ok) {
+		return {
+			success: false,
+			error: 'ServerError',
+			message: (await response.json()).message || 'Something went wrong with the server'
+		}
+	}
+	
+	return {
+		success: true,
+		message: 'Vous-êtes inscrit ! À très vite !'
+	}
 }
