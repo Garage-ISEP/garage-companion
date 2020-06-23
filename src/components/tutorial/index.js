@@ -12,25 +12,26 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const message = [
     {
-        image: 0,
-        title : "titre 0",
-        content : "contenu 0"
+        image: '../../assets/tutorial/calendarNavTutorial.png',
+        title : "Barre de navigation",
+        content : "La barre de navigation va permettre de filtrer les évènements en fonction du lab qui les organise. Il suffit simplement de cliquer sur les labs les sélectionner/désélectionner. \n"
+        + "Le bouton 'Préviously' permet quand à lui de choisir si l'on affiche ou non les anciens évènements " 
 
     },
     {
-        image: 1,
+        image: "",
         title : "titre 1",
         content : "contenu 1"
 
     },
     {
-        image: 2,
+        image: "",
         title : "titre 2",
         content : "contenu 2"
 
     },
     {
-        image: 3,
+        image: "",
         title : "titre 3",
         content : "contenu 3"
 
@@ -39,10 +40,10 @@ const message = [
 
 const useStyles = makeStyles({
     root: {
-
+        maxWidth : 700
     },
     backdrop: {
-        width:1000
+
     }
 });
 
@@ -80,21 +81,24 @@ export default function Tutorial(){
                 aria-describedby="alert-dialog-description"
                 disableBackdropClick={true}
                 fullwidth={true}
-                maxWidth = {"sm"}
+                maxWidth = {false}
+                className = {style.dialog}
                 BackdropProps={{
                     classes :{
-                        root : classes.root
+                        root : classes.backdrop
                     }
                 }}
                 PaperProps={{
                     classes : {
-                        root : classes.backDrop
+                        root : classes.root
                     }
                 }}
             >
                 <LinearProgress className={style.progress} variant="determinate" value={idMessage / (message.length-1) * 100} />
 
                 <DialogTitle id="alert-dialog-title">{message[idMessage].title}</DialogTitle>
+
+                <img className={style.imageTuto} src = {message[idMessage].image}/>
 
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
