@@ -10,6 +10,7 @@ import { useState } from 'preact/hooks';
 import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
+const versionTuto = 1;
 const message = [
     {
         image: '../../assets/tutorial/calendarNavTutorial.png',
@@ -51,7 +52,7 @@ export default function Tutorial(){
     const [idMessage, setIdMessage] = useState(0);
     
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     
     const handleClickOpen = () => {
         setOpen(true);
@@ -69,11 +70,20 @@ export default function Tutorial(){
         }
     };
 
+    const isDone = () => { //verify if tuto is already done
+        if(localStorage.getItem("versionTutorialDone")){
+            if(localStorage.getItem("versionTutorialDone") == versionTuto){
+                handleClose();
+            }else{
+                localStorage.versionTutorialDone = versionTuto;
+            }
+        }else{
+            localStorage.versionTutorialDone = versionTuto;
+        }
+    }
+
     return (
         <div>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                Accéder au tutoriel
-            </Button>
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -82,6 +92,7 @@ export default function Tutorial(){
                 disableBackdropClick={true}
                 fullwidth={true}
                 maxWidth = {false}
+                onEnter = {isDone}
                 className = {style.dialog}
                 BackdropProps={{
                     classes :{
