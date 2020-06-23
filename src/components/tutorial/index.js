@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useState } from 'preact/hooks';
 import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const message = [
     {
@@ -38,7 +39,7 @@ const message = [
 
 const useStyles = makeStyles({
     root: {
-        position:"absolute",
+
     },
     backdrop: {
         width:1000
@@ -77,7 +78,9 @@ export default function Tutorial(){
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
-                disableBackdropClick="true"
+                disableBackdropClick={true}
+                fullwidth={true}
+                maxWidth = {"sm"}
                 BackdropProps={{
                     classes :{
                         root : classes.root
@@ -85,11 +88,12 @@ export default function Tutorial(){
                 }}
                 PaperProps={{
                     classes : {
-                        root : style.backDrop
+                        root : classes.backDrop
                     }
                 }}
             >
-                
+                <LinearProgress className={style.progress} variant="determinate" value={idMessage / (message.length-1) * 100} />
+
                 <DialogTitle id="alert-dialog-title">{message[idMessage].title}</DialogTitle>
 
                 <DialogContent>
