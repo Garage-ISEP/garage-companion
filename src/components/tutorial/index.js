@@ -68,17 +68,17 @@ export default function Tutorial(){
         }
     };
 
-    // const isDone = () => { //verify if tuto is already done
-    //     if(localStorage.getItem("versionTutorialDone")){
-    //         if(localStorage.getItem("versionTutorialDone") == versionTuto){
-    //             handleClose();
-    //         }else{
-    //             localStorage.versionTutorialDone = versionTuto;
-    //         }
-    //     }else{
-    //         localStorage.versionTutorialDone = versionTuto;
-    //     }
-    // }
+    const isDone = () => { //verify if tuto is already done
+        if(localStorage.getItem("versionTutorialDone")){
+            if(localStorage.getItem("versionTutorialDone") == versionTuto){
+                handleClose();
+            }else{
+                localStorage.versionTutorialDone = versionTuto;
+            }
+        }else{
+            localStorage.versionTutorialDone = versionTuto;
+        }
+    }
 
     return (
         <div>
@@ -90,7 +90,7 @@ export default function Tutorial(){
                 disableBackdropClick={true}
                 fullwidth={true}
                 maxWidth = {false}
-                // onEnter = {isDone}
+                onEnter = {isDone}
                 className = {style.dialog}
                 BackdropProps={{
                     classes :{
