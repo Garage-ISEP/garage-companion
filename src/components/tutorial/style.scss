@@ -1,13 +1,23 @@
 .dialog{
-
+    
     .progress{
         margin:0 30px;
         margin-top: 15px;
     }
-    
-    .imageTuto{
-        width: 540px;
-        margin: 0 60px;
-        margin-bottom: 30px;
+    .imageBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:90%;
+        margin-left: 5%;
+        margin-bottom: 10px;
+
+
+        .imageTuto{
+            max-width: 100%;
+            width: auto;
+            max-height: 200px;
+        }
     }
+    
 }
