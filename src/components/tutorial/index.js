@@ -16,19 +16,21 @@ const message = [
     {
         image: "../../assets/images/tutorial/logoGarage.png",
         title : "Bienvenue",
-        content : "Bienvenue sur Garage Companion.\r\n Ce site à pour objectf de permettre aux isépiens de se renseigner et de pouvoir s'inscrire facilement aux évènements de GarageISEP. Souhaitez vous voir en détail les différentes fonctionnalités offertes par ce site ?"
+        content : "Bienvenue sur Garage Companion.\n "
+                    + "Ce site a pour objectif de permettre aux isépiens de se renseigner et de pouvoir s'inscrire facilement aux évènements de GarageISEP. \n"
+                    + "Souhaitez-vous voir en détail les différentes fonctionnalités offertes par ce site ?"
     },
     {
         image: '../../assets/images/tutorial/calendarNav.png',
         title : "Barre de navigation",
-        content : "La barre de navigation va permettre de filtrer les évènements en fonction du lab qui les organise. Il suffit simplement de cliquer sur les labs les sélectionner/désélectionner. \n"
-        + "Le bouton 'Previously' permet quand à lui de choisir si l'on affiche ou non les anciens évènements " 
+        content : "La barre de navigation va permettre de filtrer les évènements en fonction du lab qui les organise. Il suffit simplement de cliquer sur les labs pour les sélectionner ou désélectionner. \n"
+                    + "Le bouton 'Previously' permet quand à lui de choisir si l'on affiche ou non les anciens évènements " 
 
     },
     {
         image: "../../assets/images/tutorial/event.png",
         title : "Les évènements",
-        content : "Pour chacun des évènements, il est possible de se renseigner en appuyant sur le bouton \"EN SAVOIR PLUS\" ou s'inscrire en appuyant sur le bouton \"S'INSCRIRE\""
+        content : "Pour chacun des évènements, il est possible de se renseigner en appuyant sur le bouton \"EN SAVOIR PLUS\" ou de s'inscrire en appuyant sur le bouton \"S'INSCRIRE\""
     },
     {
         image: "../../assets/images/tutorial/addParticipantDialog.png",
@@ -40,9 +42,6 @@ const message = [
 const useStyles = makeStyles({
     root: {
         maxWidth : 700
-    },
-    backdrop: {
-
     }
 });
 
@@ -112,11 +111,6 @@ export default function Tutorial(){
                 maxWidth = {false}
                 onEnter = {isDone}
                 className = {style.dialog}
-                BackdropProps={{
-                    classes :{
-                        root : classes.backdrop
-                    }
-                }}
                 PaperProps={{
                     classes : {
                         root : classes.root
