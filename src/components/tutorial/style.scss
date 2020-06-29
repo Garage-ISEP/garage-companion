@@ -1,0 +1,42 @@
+.dialog{
+    .progress{
+        margin:0 30px;
+        margin-top: 15px;
+    }
+    .imageBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:90%;
+        margin-left: 5%;
+        margin-bottom: 10px;
+
+
+        .imageTuto{
+            max-width: 100%;
+            width: auto;
+            max-height: 170px;
+
+            @media all and 
+            (orientation: portrait) and
+            (max-width: 450px) and
+            (max-height: 900px)
+            {
+                max-height: 80px; 
+            }
+
+            @media all and
+            (orientation: landscape) and
+            (max-height: 450px) and
+            (max-width: 900px)
+            {
+                max-height: 30px; 
+            }
+        }
+    }
+    Button{
+        max-width: 45%;
+        
+        
+    }
+}

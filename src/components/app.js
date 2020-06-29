@@ -5,6 +5,7 @@ import Header from './header';
 
 // Code-splitting is automated for routes
 import Home from '../routes/home';
+import Tutorial from './tutorial'
 
 export default class App extends Component {
 	
@@ -25,6 +26,7 @@ export default class App extends Component {
 						<Home path="/" />
 					</Router>
 				</div>
+				<Tutorial/>
 			</div>
 		);
 	}
