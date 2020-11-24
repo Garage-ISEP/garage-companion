@@ -11,4 +11,6 @@ RUN npm install --quiet
 # Bundle app source
 COPY . .
 
+RUN npm build
+
 CMD npm run serveOnly
