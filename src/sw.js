@@ -67,6 +67,8 @@ workbox.routing.registerRoute(
 	'GET'
 );
 
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
+
 workbox.precaching.precacheAndRoute(self.__precacheManifest, precacheOptions);
 
 workbox.routing.setCatchHandler(({ event }) => {
